@@ -1,4 +1,5 @@
 ## GCP AI Notebook Custom Image
+
 ### Description
 
 A general GCP custom docker image build and upload example. This particular one is tweaked for creating an image with specific Python dependencies for use in an AI Workbench managed notebook and its executor.
@@ -9,24 +10,26 @@ Based on a GCP Cloud Build Sample:
 
 [GCP Quickstart guide](https://cloud.google.com/build/docs/build-push-docker-image)
 
+
 ### Requirements to build
 
 [gcloud CLI](https://cloud.google.com/sdk/gcloud)
 
 [Docker](https://www.docker.com/)
 
+
 ### How to use
 
-1. Create a GCP artifacts repository to store the custom image.
+**1. Create a GCP artifacts repository to store the custom image.**
 
 ```
 gcloud artifacts repositories create ml-docker-repo --repository-format=docker \
     --location=us-central1 --description="Docker images built for AI Workbench"
 ```
 
-2. Update `requirements.txt` with desired dependencies.
+**2. Update `requirements.txt` with desired dependencies.**
 
-3. Build and submit the image to the artifacts repository.
+**3. Build and submit the image to the artifacts repository.**
 
 (using cloudbuild config)
 ```
@@ -38,12 +41,13 @@ gcloud builds submit --region=us-central1 --config cloudbuild.yaml
 gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:tag1
 ```
 
-4. Locate and use image
+**4. Locate and use image**
 
-Should store an image with a URI like:
-us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:latest
+Should store an image located at:
 
-And then can be used when scheduling a notebook from within the Workbench JupyterLab:
+`us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:latest`
+
+And can then be used when scheduling a notebook from within the Workbench JupyterLab:
 
 <img width="600" alt="AI Workbench executor screenshot" src="https://user-images.githubusercontent.com/592344/211349660-a5bc4fda-0e64-4227-8948-540f06ae67b9.png">
 
