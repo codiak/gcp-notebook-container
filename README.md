@@ -3,10 +3,8 @@
 General GCP custom docker image build and upload example. This particular one is tweaked for creating an image with specific Python dependencies for use in a AI Workbench managed notebook and its executor.
 
 Based on Cloud Build Sample:
-
-(GCP Quickstart Build repo)[https://github.com/GoogleCloudPlatform/cloud-build-samples/tree/main/quickstart-build]
-
-(GCP Quickstart guide)[https://cloud.google.com/build/docs/build-push-docker-image]
+[GCP Quickstart Build repo](https://github.com/GoogleCloudPlatform/cloud-build-samples/tree/main/quickstart-build)
+[GCP Quickstart guide](https://cloud.google.com/build/docs/build-push-docker-image)
 
 ### Requirements to build
 
@@ -41,6 +39,11 @@ gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/PROJE
 
 Should store an image with a URI like:
 us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:latest
+
+And then can be used when scheduling a notebook from within the Workbench JupyterLab:
+
+<img width="600" alt="AI Workbench executor screenshot" src="https://user-images.githubusercontent.com/592344/211349660-a5bc4fda-0e64-4227-8948-540f06ae67b9.png">
+
 
 ### Additional resources
 
