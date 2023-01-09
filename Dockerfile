@@ -1,5 +1,6 @@
 # [START cloudbuild_quickstart_build_dockerfile]
-FROM python:3.7-slim-buster
+FROM gcr.io/deeplearning-platform-release/base-cpu:latest
+# Copy from local file system to container
 WORKDIR /app
 COPY requirements.txt requirements.txt
 # dependencies
