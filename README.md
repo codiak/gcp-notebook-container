@@ -4,7 +4,7 @@
 
 A general GCP custom docker image build and upload example. This particular one is tweaked for creating an image with specific Python dependencies for use in an AI Workbench managed notebook and its executor.
 
-Based on a GCP Cloud Build Sample:
+Based on the GCP Cloud Build Sample:
 
 [GCP Quickstart Build repo](https://github.com/GoogleCloudPlatform/cloud-build-samples/tree/main/quickstart-build)
 
@@ -22,6 +22,7 @@ Based on a GCP Cloud Build Sample:
 
 **1. Create a GCP artifacts repository to store the custom image.**
 
+Feel free to use a name, region, and description of your choice!
 ```
 gcloud artifacts repositories create ml-docker-repo --repository-format=docker \
     --location=us-central1 --description="Docker images built for AI Workbench"
@@ -31,7 +32,7 @@ gcloud artifacts repositories create ml-docker-repo --repository-format=docker \
 
 **3. Build and submit the image to the artifacts repository.**
 
-(using cloudbuild config)
+(using cloudbuild config, recommended)
 ```
 gcloud builds submit --region=us-central1 --config cloudbuild.yaml
 ```
@@ -41,24 +42,24 @@ gcloud builds submit --region=us-central1 --config cloudbuild.yaml
 gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:tag1
 ```
 
-**4. Locate and use image**
+**4. Locate and use custom image.**
 
 Should store an image located at:
 
 `us-central1-docker.pkg.dev/PROJECT-ID/ml-docker-repo/custom-image:latest`
 
-And can then be used when scheduling a notebook from within the Workbench JupyterLab:
+And can then be used when scheduling a notebook from within the Workbench JupyterLab after clicking "Execute":
 
 <img width="600" alt="AI Workbench executor screenshot" src="https://user-images.githubusercontent.com/592344/211349660-a5bc4fda-0e64-4227-8948-540f06ae67b9.png">
 
 
 ### Additional resources
 
-This custom image uses a GCP image has its derivative container:
+This custom image uses a GCP image as its derivative container:
 https://cloud.google.com/deep-learning-containers/docs/derivative-container
 
 Available GCP images:
 https://cloud.google.com/deep-learning-containers/docs/choosing-container
 
-General steps on building Python docker image:
+General steps on building Python docker images:
 https://docs.docker.com/language/python/build-images/
