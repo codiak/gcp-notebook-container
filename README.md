@@ -1,9 +1,12 @@
+## GCP AI Notebook Custom Image
 ### Description
 
-General GCP custom docker image build and upload example. This particular one is tweaked for creating an image with specific Python dependencies for use in a AI Workbench managed notebook and its executor.
+A general GCP custom docker image build and upload example. This particular one is tweaked for creating an image with specific Python dependencies for use in an AI Workbench managed notebook and its executor.
 
-Based on Cloud Build Sample:
+Based on a GCP Cloud Build Sample:
+
 [GCP Quickstart Build repo](https://github.com/GoogleCloudPlatform/cloud-build-samples/tree/main/quickstart-build)
+
 [GCP Quickstart guide](https://cloud.google.com/build/docs/build-push-docker-image)
 
 ### Requirements to build
