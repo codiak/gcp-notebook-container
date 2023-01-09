@@ -17,5 +17,5 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/ml-docker-repo/linucb-image:latest', '.' ]
 images:
-- 'us-central1-docker.pkg.dev/$PROJECT_ID/ml-docker-repo/linucb-image:latest'
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/ml-docker-repo/custom-image:latest'
 # [END cloudbuild_quickstart_build]
